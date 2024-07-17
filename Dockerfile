@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 RUN cargo build --release --target $(rustc -Vv | grep "host" | cut -d ' ' -f2) \
-  mv /app/target/$(rustc -Vv | grep "host" | cut -d ' ' -f2)/release/zola /bin/zola 
+  && mv /app/target/$(rustc -Vv | grep "host" | cut -d ' ' -f2)/release/zola /bin/zola 
 
 
 FROM gcr.io/distroless/cc-debian12
